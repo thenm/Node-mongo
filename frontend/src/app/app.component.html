@@ -1,0 +1,53 @@
+<h1>Users</h1>
+<div class="form-group">
+  <label for="exampleInputEmail1">Name</label>
+  <input type="text" [(ngModel)]="name" class="form-control" id="exampleInputName" aria-describedby="emailName"
+    placeholder="Enter name">
+</div>
+<div class="form-group">
+  <label for="exampleInputEmail1">Email address</label>
+  <input type="email" [(ngModel)]="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+    placeholder="Enter email">
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Phone Number</label>
+  <input type="text" [(ngModel)]="phoneNo" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+</div>
+<div class="form-group">
+  <label for="exampleInputTicket">Ticket Number</label>
+  <input type="text" [(ngModel)]="ticketNo" class="form-control" id="exampleInputTicket" placeholder="Ticket Number">
+</div>
+<button (click)="onSubmit()" class="btn btn-primary">Add User</button>
+
+<hr>
+
+<h2>Search User</h2>
+<div class="form-group">
+  <label for="searchByPhoneId">Phone Number</label>
+  <input type="text" [(ngModel)]="phoneNoSearch" class="form-control" id="searchByPhoneId" placeholder="Phone Number">
+  <button (click)="searchUserByPhone()" class="btn btn-primary">Search</button>
+  <button (click)="clearUserSearch()" class="btn btn-secondary">Clear</button>
+</div>
+
+<h2>All Users</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Ticket</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index;">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phoneNo}}</td>
+      <td>{{user.ticketNo}}</td>
+    </tr>
+
+  </tbody>
+</table>
